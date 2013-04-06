@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.mmocore</groupId>
+	<artifactId>nanodwarf-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<tycho-version>0.16.0</tycho-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>juno</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/juno</url>
+		</repository>
+		
+		<repository>
+			<id>orbit</id>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>ru.mmocore.external</groupId>
+			<artifactId>org.apache.commons.collections</artifactId>
+			<version>4.01</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>ru.mmocore.external</groupId>
+			<artifactId>com.sleepycat.je</artifactId>
+			<version>5.0.58</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>ru.mmocore.external</groupId>
+			<artifactId>jung.graph.impl</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+	</dependencies>
+	
+	<modules>
+		<module>../../plugins/ru.mmocore.nanodwarf</module>
+		<module>../../plugins/ru.mmocore.nanodwarf.api</module>
+		<module>../../plugins/ru.mmocore.nanodwarf.client</module>
+		<module>../../plugins/ru.mmocore.nanodwarf.internal.api</module>
+		<module>../../plugins/ru.mmocore.nanodwarf.services</module>
+		<module>../../plugins/ru.mmocore.nanodwarf.shared</module>
+		
+		<module>../../tests/ru.mmocore.nanodwarf</module>
+		<module>../../tests/ru.mmocore.nanodwarf.client</module>
+		
+		<module>../../features/ru.mmocore.nanodwarf</module>
+		<module>../../features/ru.mmocore.nanodwarf.client</module>
+		<module>../../features/ru.mmocore.nanodwarf.external</module>
+		<module>../../features/ru.mmocore.nanodwarf.sdk</module>
+		<module>../../features/ru.mmocore.nanodwarf.test</module>
+		<module>../../features/ru.mmocore.nanodwarf.client.test</module>
+		
+		<module>../../releng/update-site</module>
+	</modules>
+	
+	<build>
+		<plugins>
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-maven-plugin</artifactId>
+			<version>${tycho-version}</version>
+			<extensions>true</extensions>
+		</plugin>
+		
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>target-platform-configuration</artifactId>
+			<version>${tycho-version}</version>
+			<configuration>
+				<resolver>p2</resolver>
+				<pomDependencies>consider</pomDependencies>
+				<ignoreTychoRepositories>true</ignoreTychoRepositories>
+			</configuration>
+		</plugin>
+		
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-source-plugin</artifactId>
+			<version>${tycho-version}</version>
+			<executions>
+				<execution>
+					<id>plugin-source</id>
+					<goals>
+						<goal>plugin-source</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		
+		</plugins>
+	</build>
+</project>

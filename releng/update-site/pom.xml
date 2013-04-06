@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<name>NanoDwarf Update Site</name>
+	<artifactId>ru.mmocore.nanodwarf.site</artifactId>
+	<packaging>eclipse-repository</packaging>
+
+	<parent>
+		<groupId>ru.mmocore</groupId>
+		<artifactId>nanodwarf-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../releng/build/pom.xml</relativePath>
+	</parent>
+
+	<build>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<configuration>
+					<includeAllDependencies>false</includeAllDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</pluginManagement>
+	
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>deploy</id>
+
+			<properties>
+				<from-repo>${project.build.directory}/repository</from-repo>
+				<to-repo>${deploy_dir}</to-repo>
+			</properties>
+
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<configuration>
+									<target name="check">
+										<condition property="deldir">
+											<available file="${to-repo}" type="dir" />
+										</condition>
+									</target>
+									<target name="deldir" depends="check" if="deldir">
+										<delete>
+											<fileset includes="**/*" dir="${to-repo}" />
+										</delete>
+									</target>
+									<target>
+										<mkdir dir="${to-repo}" />
+										<copy todir="${to-repo}">
+											<fileset dir="${from-repo}" includes="**/*" />
+										</copy>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
+
+</project>

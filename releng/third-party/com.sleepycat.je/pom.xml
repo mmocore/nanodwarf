@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<name>Berkeley DB OSGi Distribution</name>
+	<artifactId>com.sleepycat.je</artifactId>
+	<version>5.0.58</version>
+	<packaging>bundle</packaging>
+
+	<parent>
+		<groupId>ru.mmocore.external</groupId>
+		<artifactId>nanodwarf-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sleepycat</groupId>
+			<artifactId>je</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>oracle.com</id>
+			<name>Oracle public download repository</name>
+			<url>http://download.oracle.com/maven</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.6</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<DynamicImport-Package>*</DynamicImport-Package>
+						<Bundle-Vendor>${project.groupId}</Bundle-Vendor>
+						<Export-Package>com.sleepycat.*</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

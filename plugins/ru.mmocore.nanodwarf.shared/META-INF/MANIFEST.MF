@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NanoDwarf Shared
+Bundle-SymbolicName: ru.mmocore.nanodwarf.shared
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MMOCore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+DynamicImport-Package: *
+Export-Package: com.sun.sgs.impl.sharedutil,
+ com.sun.sgs.impl.sharedutil.logging,
+ com.sun.sgs.protocol.simple

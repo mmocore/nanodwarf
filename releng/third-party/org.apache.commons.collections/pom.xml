@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<name>Apache Commons Collections OSGi Distribution</name>
+	<artifactId>org.apache.commons.collections</artifactId>
+	<version>4.01</version>
+	<packaging>bundle</packaging>
+
+	<parent>
+		<groupId>ru.mmocore.external</groupId>
+		<artifactId>nanodwarf-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.sourceforge.collections</groupId>
+			<artifactId>collections-generic</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.6</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-Vendor>${project.groupId}</Bundle-Vendor>
+						<Export-Package>org.apache.commons.collections15.*</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

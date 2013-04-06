@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/ru.mmocore.nanodwarf.client.feature_0.0.0.jar" id="ru.mmocore.nanodwarf.client.feature" version="0.0.0">
+      <category name="Client"/>
+   </feature>
+   <feature url="features/ru.mmocore.nanodwarf.feature_0.0.0.jar" id="ru.mmocore.nanodwarf.feature" version="0.0.0">
+      <category name="Server"/>
+   </feature>
+   <feature url="features/ru.mmocore.nanodwarf.client.test.feature_1.0.0.qualifier.jar" id="ru.mmocore.nanodwarf.client.test.feature" version="1.0.0.qualifier">
+      <category name="Tests"/>
+   </feature>
+   <feature url="features/ru.mmocore.nanodwarf.test.feature_1.0.0.qualifier.jar" id="ru.mmocore.nanodwarf.test.feature" version="1.0.0.qualifier">
+      <category name="Tests"/>
+   </feature>
+   <feature url="features/ru.mmocore.nanodwarf.sdk_1.0.0.qualifier.jar" id="ru.mmocore.nanodwarf.sdk" version="1.0.0.qualifier">
+      <category name="SDK"/>
+   </feature>
+   <feature url="features/ru.mmocore.nanodwarf.external_1.0.0.qualifier.jar" id="ru.mmocore.nanodwarf.external" version="1.0.0.qualifier">
+      <category name="External"/>
+   </feature>
+   <category-def name="Client" label="NanoDwarf Client"/>
+   <category-def name="Server" label="NanoDwarf Server"/>
+   <category-def name="External" label="Third-Party"/>
+   <category-def name="SDK" label="NanoDwarf SDK"/>
+   <category-def name="Tests" label="Tests"/>
+</site>

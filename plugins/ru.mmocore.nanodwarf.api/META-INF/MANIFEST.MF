@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NanoDwarf Server Api
+Bundle-SymbolicName: ru.mmocore.nanodwarf.api
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MMOCore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+DynamicImport-Package: *
+Export-Package: com.sun.sgs.app,
+ com.sun.sgs.app.util,
+ com.sun.sgs.internal

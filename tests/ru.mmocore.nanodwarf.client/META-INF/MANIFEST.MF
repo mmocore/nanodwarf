@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NanoDwarf Client Test
+Bundle-SymbolicName: ru.mmocore.nanodwarf.client.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MMOCore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+DynamicImport-Package: *
+Export-Package: com.sun.sgs.impl.io,
+ com.sun.sgs.test.client.simple,
+ com.sun.sgs.test.impl.io
+Require-Bundle: org.junit;bundle-version="4.8.2",
+ org.apache.mina.core;bundle-version="2.0.2",
+ ru.mmocore.nanodwarf.client;bundle-version="1.0.0",
+ ru.mmocore.nanodwarf.shared;bundle-version="1.0.0"
