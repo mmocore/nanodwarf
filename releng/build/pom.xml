@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	
 	<properties>
-		<tycho-version>0.16.0</tycho-version>
+		<tycho-version>0.18.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	
@@ -15,12 +15,12 @@
 		<repository>
 			<id>juno</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/juno</url>
+			<url>http://download.eclipse.org/releases/kepler</url>
 		</repository>
 		
 		<repository>
 			<id>orbit</id>
-			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository</url>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130517111416/repository</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
@@ -35,7 +35,7 @@
 		<dependency>
 			<groupId>ru.mmocore.external</groupId>
 			<artifactId>com.sleepycat.je</artifactId>
-			<version>5.0.58</version>
+			<version>5.0.97</version>
 		</dependency>
 		
 		<dependency>

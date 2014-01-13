@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="main">
+	
+	<target name="check_dir">
+		<condition property="deldir">
+			<available file="${to-repo}" type="dir" />
+		</condition>
+	</target>
+	
+	<target name="deldir" depends="check_dir" if="deldir">
+		<echo>Delete old repo: ${to-repo}</echo>
+		<delete>
+			<fileset includes="**/*" dir="${to-repo}" />
+		</delete>
+	</target>
+	
+	<target name="main" depends="deldir">
+		<mkdir dir="${to-repo}" />
+		<copy todir="${to-repo}">
+			<fileset dir="${from-repo}" includes="**/*" />
+		</copy>
+	</target>
+	
+</project>

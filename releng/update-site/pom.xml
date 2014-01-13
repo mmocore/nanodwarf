@@ -46,22 +46,9 @@
 							<execution>
 								<phase>verify</phase>
 								<configuration>
-									<target name="check">
-										<condition property="deldir">
-											<available file="${to-repo}" type="dir" />
-										</condition>
-									</target>
-									<target name="deldir" depends="check" if="deldir">
-										<delete>
-											<fileset includes="**/*" dir="${to-repo}" />
-										</delete>
-									</target>
 									<target>
-										<mkdir dir="${to-repo}" />
-										<copy todir="${to-repo}">
-											<fileset dir="${from-repo}" includes="**/*" />
-										</copy>
-									</target>
+									 	<ant antfile="deploy.xml"/>
+									 </target>
 								</configuration>
 								<goals>
 									<goal>run</goal>

@@ -29,6 +29,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Vendor>${project.groupId}</Bundle-Vendor>
 						<Export-Package>org.apache.commons.collections15.*</Export-Package>
 					</instructions>

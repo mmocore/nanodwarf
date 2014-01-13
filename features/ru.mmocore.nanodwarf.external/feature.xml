@@ -18,21 +18,21 @@
    </license>
 
    <plugin
-         id="ru.mmocore.external.com.sleepycat.je"
+         id="com.sleepycat.je"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="ru.mmocore.external.jung.graph.impl"
+         id="jung.graph.impl"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="ru.mmocore.external.org.apache.commons.collections"
+         id="org.apache.commons.collections"
          download-size="0"
          install-size="0"
          version="0.0.0"

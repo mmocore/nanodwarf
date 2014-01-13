@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>Berkeley DB OSGi Distribution</name>
 	<artifactId>com.sleepycat.je</artifactId>
-	<version>5.0.58</version>
+	<version>5.0.97</version>
 	<packaging>bundle</packaging>
 
 	<parent>
@@ -38,6 +38,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<DynamicImport-Package>*</DynamicImport-Package>
 						<Bundle-Vendor>${project.groupId}</Bundle-Vendor>
 						<Export-Package>com.sleepycat.*</Export-Package>

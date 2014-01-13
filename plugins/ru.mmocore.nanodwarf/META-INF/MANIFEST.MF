@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: NanoDwarf Server
-Bundle-SymbolicName: ru.mmocore.nanodwarf
+Bundle-SymbolicName: ru.mmocore.nanodwarf;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: MMOCore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -9,12 +9,13 @@ DynamicImport-Package: *
 Import-Package: com.sun.sgs.app,
  com.sun.sgs.app.util,
  com.sun.sgs.internal,
- org.apache.commons.collections15
+ org.apache.commons.collections15,
+ org.osgi.framework
 Require-Bundle: ru.mmocore.nanodwarf.api;bundle-version="1.0.0";visibility:=reexport,
  ru.mmocore.nanodwarf.internal.api;bundle-version="1.0.0";visibility:=reexport,
  ru.mmocore.nanodwarf.shared;bundle-version="1.0.0";visibility:=reexport,
- ru.mmocore.external.com.sleepycat.je;bundle-version="5.0";visibility:=reexport,
- ru.mmocore.external.jung.graph.impl;bundle-version="2.0.1";visibility:=reexport
+ com.sleepycat.je;bundle-version="5.0";visibility:=reexport,
+ jung.graph.impl;bundle-version="2.0.1";visibility:=reexport
 Export-Package: com.sun.sgs.impl.app.profile,
  com.sun.sgs.impl.auth,
  com.sun.sgs.impl.kernel,
@@ -45,3 +46,5 @@ Export-Package: com.sun.sgs.impl.app.profile,
  com.sun.sgs.impl.transport.tcp,
  com.sun.sgs.impl.util,
  com.sun.sgs.impl.util.lock
+Bundle-Activator: com.sun.sgs.impl.kernel.Activator
+Bundle-ActivationPolicy: lazy

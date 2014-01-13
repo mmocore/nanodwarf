@@ -8,65 +8,50 @@ import com.sun.sgs.app.NameNotBoundException;
 import com.sun.sgs.app.ManagedObject;
 import com.sun.sgs.app.util.ManagedSerializable;
 import com.sun.sgs.internal.InternalContext;
-
 import com.sun.sgs.auth.Identity;
 import com.sun.sgs.auth.IdentityAuthenticator;
 import com.sun.sgs.auth.IdentityCoordinator;
-
 import com.sun.sgs.impl.auth.IdentityImpl;
-
 import com.sun.sgs.impl.kernel.StandardProperties.ServiceNodeTypes;
 import com.sun.sgs.impl.kernel.StandardProperties.StandardService;
-
 import com.sun.sgs.impl.kernel.logging.TransactionAwareLogManager;
-
 import com.sun.sgs.impl.profile.ProfileCollectorHandle;
 import com.sun.sgs.impl.profile.ProfileCollectorHandleImpl;
 import com.sun.sgs.impl.profile.ProfileCollectorImpl;
-
 import com.sun.sgs.impl.service.transaction.TransactionCoordinator;
 import com.sun.sgs.impl.service.transaction.TransactionCoordinatorImpl;
-
 import com.sun.sgs.impl.sharedutil.LoggerWrapper;
 import com.sun.sgs.impl.sharedutil.PropertiesWrapper;
-
 import com.sun.sgs.impl.util.AbstractKernelRunnable;
 import com.sun.sgs.impl.util.BindingKeyedCollections;
 import com.sun.sgs.impl.util.BindingKeyedCollectionsImpl;
 import com.sun.sgs.impl.util.Version;
-
 import com.sun.sgs.kernel.ComponentRegistry;
-
 import com.sun.sgs.management.KernelMXBean;
-
 import com.sun.sgs.profile.ProfileCollector;
 import com.sun.sgs.profile.ProfileCollector.ProfileLevel;
 import com.sun.sgs.profile.ProfileListener;
-
 import com.sun.sgs.service.DataService;
 import com.sun.sgs.service.Service;
 import com.sun.sgs.service.TransactionProxy;
-
 import com.sun.sgs.service.WatchdogService;
+
 import java.io.File;
 import java.io.InputStream;
 import java.io.IOException;
-
 import java.net.URL;
-
 import java.lang.reflect.Constructor;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.LogManager;
+
 import javax.management.JMException;
 
 /**
@@ -358,6 +343,8 @@ public class Kernel {
 		KernelManager kernelManager = new KernelManager();
 		try {
 			profileCollector.registerMBean(kernelManager, KernelManager.MXBEAN_NAME);
+			
+			Activator.bundleContext.registerService(KernelMXBean.class, kernelManager, null);
 		} catch (JMException e) {
 			logger.logThrow(Level.WARNING, e, "Could not register MBean");
 			throw e;
@@ -1236,5 +1223,4 @@ public class Kernel {
 		// boot the kernel
 		new Kernel(appProperties);
 	}
-
 }
